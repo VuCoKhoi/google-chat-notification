@@ -78,3 +78,4 @@ const card = {
   ],
 };
 client.sendCard(card).catch(console.log);
+client.sendText(userSpecificMention).catch(console.log);
