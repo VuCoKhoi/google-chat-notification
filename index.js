@@ -26,6 +26,8 @@ const userSpecificMention = client.getMentionMarkup(
   MentionType.SPECIFIC_USER,
   `113263506233665221171`
 );
+
+console.log("aaaaaa", userSpecificMention);
 const card = {
   cards: [
     {
@@ -47,11 +49,6 @@ const card = {
               },
             },
             {
-              textParagraph: {
-                text: `${userSpecificMention} Merge it before it's too late.`,
-              },
-            },
-            {
               buttons: [
                 {
                   textButton: {
@@ -64,6 +61,15 @@ const card = {
                   },
                 },
               ],
+            },
+          ],
+        },
+        {
+          widgets: [
+            {
+              textParagraph: {
+                text: `${userSpecificMention} Merge it before it's too late.`,
+              },
             },
           ],
         },
