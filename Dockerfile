@@ -9,6 +9,8 @@ RUN apk add --no-cache \
   curl \
   jq
 
+RUN mkdir -p /usr/app
+WORKDIR /usr/app
 # Copies your code file  repository to the filesystem
 COPY . .
 
