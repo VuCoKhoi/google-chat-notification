@@ -16,10 +16,10 @@ COPY . .
 
 RUN npm i
 RUN ls
-
+RUN npm run start
 # change permission to execute the script and
 # RUN chmod +x ./entrypoint.sh
 
 # file to execute when the docker container starts up
 # ENTRYPOINT ["sudo", "sh","./entrypoint.sh"]
-CMD ["npm", "run", "start"]
+# CMD ["npm", "run", "start"]
