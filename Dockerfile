@@ -18,7 +18,7 @@ RUN npm i
 RUN ls
 
 # change permission to execute the script and
-RUN chmod +x /entrypoint.sh
+RUN chmod +x ./entrypoint.sh
 
 # file to execute when the docker container starts up
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
