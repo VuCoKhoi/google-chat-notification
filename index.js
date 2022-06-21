@@ -21,7 +21,10 @@ if (!url) {
   throw new Error("Environment variable 'WEBHOOK_URL' must be set.");
 }
 const client = new GoogleChatWebhook({ url });
-
+const userSpecificMention = client.getMentionMarkup(
+  MentionType.USER_SPECIFIC,
+  `113263506233665221171`
+);
 const card = {
   cards: [
     {
@@ -43,17 +46,12 @@ const card = {
               },
             },
             {
+              textParagraph: {
+                text: `${userSpecificMention} Merge it before it's too late.`,
+              },
+            },
+            {
               buttons: [
-                {
-                  imageButton: {
-                    icon: BuiltInIcon.CLOCK,
-                    onClick: {
-                      openLink: {
-                        url: `${GITHUB_SERVER_URL}/${INPUT_PROJECT}/pull/${INPUT_EVENTNUMBER}`,
-                      },
-                    },
-                  },
-                },
                 {
                   textButton: {
                     text: `Open Pull Request`,
