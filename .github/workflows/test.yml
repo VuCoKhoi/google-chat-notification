@@ -22,7 +22,7 @@ jobs:
         if: ${{ always() }}
         uses: ./ # Uses an action in the root directory
         with:
-          message: ${{ steps.commit_message.output.message }}
+          message: ${{ steps.commit_message.outputs.message }}
           project: ${{ github.repository }}
           commit: ${{ steps.slug.outputs.sha8 }}
           branch: ${{ github.ref }}
