@@ -32,4 +32,4 @@ echo "GITHUB_REF_TYPE=${GITHUB_REF_TYPE}"
 echo "GITHUB_REF_TYPE=${GITHUB_REF_TYPE}"
 
 npm i
-npm run start
+npm run start 

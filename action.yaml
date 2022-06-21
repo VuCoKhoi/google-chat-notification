@@ -1,6 +1,8 @@
-name: "Google Chat Action"
-author: "D Ther Htun"
+name: "Google Chat Notification"
 description: "Github actions for google chat Room Bot"
+env:
+  PR_NUMBER: ${{ github.event.number }}
+
 inputs:
   message:
     description: "Commit Message"

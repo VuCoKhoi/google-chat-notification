@@ -1,14 +1,16 @@
-const args = process.argv;
-//   .filter((item) => item.includes("--"))
-//   .reduce((acc, cur) => {
-//     const [key, value] = cur.split("=");
-//     return {
-//       ...acc,
-//       [key.replace("--", "")]: value,
-//     };
-//   }, {});
-
 console.log("args", args, process.env);
+
+const {
+  INPUT_PROJECT,
+  INPUT_MESSAGE,
+  INPUT_BRANCH,
+  INPUT_WEBHOOK,
+  INPUT_STATUS,
+  GITHUB_REF_NAME,
+  PR_NUMBER,
+} = process.env;
+
+console.log("aaaaaaaaaaaPR_NUMBER", PR_NUMBER);
 
 // import { GoogleChatWebhook } from "google-chat-webhook";
 // const url = process.env.WEBHOOK_URL;

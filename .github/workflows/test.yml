@@ -1,5 +1,10 @@
 name: Test action
-on: [push]
+on:
+  [push]
+  # pull_request:
+  #   types:
+  #     - opened
+  #     - reopened
 jobs:
   my_job:
     runs-on: ubuntu-latest
