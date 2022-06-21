@@ -19,5 +19,5 @@ RUN ls
 RUN chmod +x /entrypoint.sh
 
 # file to execute when the docker container starts up
-ENTRYPOINT ["sudo", "sh","/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 # CMD ["npm", "run", "start"]
