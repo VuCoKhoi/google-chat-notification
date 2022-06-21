@@ -20,7 +20,7 @@ jobs:
         if: ${{ always() }}
         uses: ./ # Uses an action in the root directory
         with:
-          message: ${{ try github.event.commits[0].message }}
+          message: ${{ github.event.commits[0].message }}
           project: ${{ github.repository }}
           commit: ${{ steps.slug.outputs.sha8 }}
           branch: ${{ github.ref }}
