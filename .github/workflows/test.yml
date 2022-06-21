@@ -26,4 +26,5 @@ jobs:
           branch: ${{ github.ref }}
           status: ${{ job.status }}
           actionid: ${{ github.repository }}/runs/${{ github.run_id }}
+          eventnumber: ${{ github.event.number }}
           webhook: https://chat.googleapis.com/v1/spaces/AAAARxCdg4c/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=b55Vt5clqohp_cgD1bwpFgA0eZg8yhoBzuAYP1U-U3s%3D

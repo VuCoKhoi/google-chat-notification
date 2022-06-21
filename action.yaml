@@ -1,8 +1,5 @@
 name: "Google Chat Notification"
 description: "Github actions for google chat Room Bot"
-env:
-  PR_NUMBER: ${{ github.event.number }}
-
 inputs:
   message:
     description: "Commit Message"
@@ -22,6 +19,9 @@ inputs:
   actionid:
     description: "Current Running Action ID"
     required: true
+  eventnumber:
+    description: "Event Number"
+    required: true
   webhook:
     description: "Google Chat Webhook URL"
     required: true
@@ -37,3 +37,4 @@ runs:
     - ${{ inputs.actionid }}
     - ${{ inputs.webhook }}
     - ${{ inputs.message }}
+    - ${{ inputs.eventnumber }}

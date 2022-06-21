@@ -6,11 +6,12 @@ const {
   INPUT_BRANCH,
   INPUT_WEBHOOK,
   INPUT_STATUS,
+  INPUT_EVENTNUMBER,
   GITHUB_REF_NAME,
   PR_NUMBER,
 } = process.env;
 
-console.log("aaaaaaaaaaaPR_NUMBER", PR_NUMBER);
+console.log("aaaaaaaaaaaPR_NUMBER", INPUT_EVENTNUMBER);
 
 // import { GoogleChatWebhook } from "google-chat-webhook";
 // const url = process.env.WEBHOOK_URL;
