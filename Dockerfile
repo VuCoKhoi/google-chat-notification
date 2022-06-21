@@ -1,6 +1,6 @@
 
 # Base image
-FROM node:latest-alpine
+FROM node:14-alpine
 
 # installes required packages for our script
 RUN apk add --no-cache \
