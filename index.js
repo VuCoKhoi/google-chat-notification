@@ -37,7 +37,8 @@ const card = {
             {
               keyValue: {
                 topLabel: `Commit message: ${INPUT_MESSAGE}`,
-                contentMultiline: `${GITHUB_ACTOR} want to merge branch ${INPUT_HEADREF} into ${INPUT_BASEREF}`,
+                content: `${GITHUB_ACTOR} want to merge branch ${INPUT_HEADREF} into ${INPUT_BASEREF}`,
+                contentMultiline: true,
                 bottomLabel: `Status: ${INPUT_STATUS}`,
               },
             },
