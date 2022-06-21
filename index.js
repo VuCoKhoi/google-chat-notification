@@ -5,7 +5,6 @@ const {
   INPUT_WEBHOOK,
   INPUT_STATUS,
   INPUT_EVENTNUMBER,
-  GITHUB_REF_NAME,
   GITHUB_SERVER_URL,
   INPUT_BASEREF,
   INPUT_HEADREF,
@@ -28,7 +27,7 @@ const card = {
     {
       header: {
         title: "1 Pull Request need to be review",
-        subtitle: `${GITHUB_ACTOR} want to merge branch ${INPUT_HEADREF} into ${INPUT_BASEREF}`,
+        subtitle: `project: ${INPUT_PROJECT}`,
         // imageUrl: `https://www.appgefahren.de/wp-content/uploads/2020/01/unsplash-icon.jpg`,
         // imageStyle: BuiltInIcon.PERSON,
       },
@@ -36,15 +35,17 @@ const card = {
         {
           widgets: [
             {
-              image: {
-                imageUrl: `https://images.unsplash.com/photo-1541960071727-c531398e7494?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80`,
+              keyValue: {
+                topLabel: `Commit message: ${INPUT_MESSAGE}`,
+                contentMultiline: `${GITHUB_ACTOR} want to merge branch ${INPUT_HEADREF} into ${INPUT_BASEREF}`,
+                bottomLabel: `Status: ${INPUT_STATUS}`,
               },
             },
             {
               buttons: [
                 {
                   imageButton: {
-                    icon: BuiltInIcon.AIRPLANE,
+                    icon: BuiltInIcon.CLOCK,
                     onClick: {
                       openLink: {
                         url: `${GITHUB_SERVER_URL}/${INPUT_PROJECT}/pull/${INPUT_EVENTNUMBER}`,
