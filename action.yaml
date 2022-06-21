@@ -22,6 +22,12 @@ inputs:
   eventnumber:
     description: "Event Number"
     required: true
+  baseref:
+    description: "Target Branch"
+    required: true
+  headref:
+    description: "Source Branch"
+    required: true
   webhook:
     description: "Google Chat Webhook URL"
     required: true
@@ -38,3 +44,5 @@ runs:
     - ${{ inputs.webhook }}
     - ${{ inputs.message }}
     - ${{ inputs.eventnumber }}
+    - ${{ inputs.baseref }}
+    - ${{ inputs.headref }}

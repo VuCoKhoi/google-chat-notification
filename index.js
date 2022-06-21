@@ -5,15 +5,77 @@ const {
   INPUT_WEBHOOK,
   INPUT_STATUS,
   INPUT_EVENTNUMBER,
-  GITHUB_REF_NAME,
-  PR_NUMBER,
+  GITHUB_SERVER_URL,
+  INPUT_BASEREF,
+  INPUT_HEADREF,
+  GITHUB_ACTOR,
 } = process.env;
 
-console.log("aaaaaaaaaaaPR_NUMBER", INPUT_EVENTNUMBER);
+import {
+  BuiltInIcon,
+  CardImageStyle,
+  GoogleChatWebhook,
+  MentionType,
+} from "google-chat-webhook";
+const url = process.env.INPUT_WEBHOOK;
+if (!url) {
+  throw new Error("Environment variable 'WEBHOOK_URL' must be set.");
+}
+const client = new GoogleChatWebhook({ url });
+const userSpecificMention = client.getMentionMarkup(
+  MentionType.SPECIFIC_USER,
+  `113263506233665221171`
+);
 
-// import { GoogleChatWebhook } from "google-chat-webhook";
-// const url = process.env.WEBHOOK_URL;
-// if (!url) {
-//   throw new Error("Environment variable 'WEBHOOK_URL' must be set.");
-// }
-// const client = new GoogleChatWebhook({ url });
+console.log("aaaaaa", userSpecificMention);
+const card = {
+  cards: [
+    {
+      header: {
+        title: "1 Pull Request need to be review",
+        subtitle: `project: ${INPUT_PROJECT}`,
+        // imageUrl: `https://www.appgefahren.de/wp-content/uploads/2020/01/unsplash-icon.jpg`,
+        // imageStyle: BuiltInIcon.PERSON,
+      },
+      sections: [
+        {
+          widgets: [
+            {
+              keyValue: {
+                topLabel: `Commit message: ${INPUT_MESSAGE}`,
+                content: `${GITHUB_ACTOR} want to merge branch ${INPUT_HEADREF} into ${INPUT_BASEREF}`,
+                contentMultiline: true,
+                bottomLabel: `Status: ${INPUT_STATUS}`,
+              },
+            },
+            {
+              buttons: [
+                {
+                  textButton: {
+                    text: `Open Pull Request`,
+                    onClick: {
+                      openLink: {
+                        url: `${GITHUB_SERVER_URL}/${INPUT_PROJECT}/pull/${INPUT_EVENTNUMBER}`,
+                      },
+                    },
+                  },
+                },
+              ],
+            },
+          ],
+        },
+        {
+          widgets: [
+            {
+              textParagraph: {
+                text: `${userSpecificMention} Merge it before it's too late.`,
+              },
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+client.sendCard(card).catch(console.log);
+client.sendText(userSpecificMention).catch(console.log);
