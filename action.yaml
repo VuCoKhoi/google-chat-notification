@@ -2,6 +2,9 @@ name: "Google Chat Action"
 author: "D Ther Htun"
 description: "Github actions for google chat Room Bot"
 inputs:
+  message:
+    description: "Commit Message"
+    required: true
   project:
     description: "Github Project Name"
     required: true
@@ -31,4 +34,4 @@ runs:
     - ${{ inputs.status }}
     - ${{ inputs.actionid }}
     - ${{ inputs.webhook }}
-    - ${{ github.event.head_commit.message }}
+    - ${{ inputs.message }}
