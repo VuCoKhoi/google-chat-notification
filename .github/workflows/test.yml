@@ -16,14 +16,13 @@ jobs:
         if: ${{ always() }}
         run: echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
         id: slug
-      - name: get commit message
-        run: |
-          echo ::set-env name=commitmsg::$(git log --format=%B -n 1 ${{ github.event.after }})
+      - name: commit_message
+        run: echo "::set-output name=message::$(git log --no-merges -1 --oneline)"
       - name: Chat Setup
         if: ${{ always() }}
         uses: ./ # Uses an action in the root directory
         with:
-          message: ${{ env.message }}
+          message: ${{ steps.commit_message.output.message }}
           project: ${{ github.repository }}
           commit: ${{ steps.slug.outputs.sha8 }}
           branch: ${{ github.ref }}
