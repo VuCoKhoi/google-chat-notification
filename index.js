@@ -1,5 +1,3 @@
-console.log("args", args, process.env);
-
 const {
   INPUT_PROJECT,
   INPUT_MESSAGE,
