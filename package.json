@@ -1,0 +1,23 @@
+{
+  "name": "google-chat-notification",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --exec npm run babel-node -- ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VuCoKhoi/google-chat-notification.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VuCoKhoi/google-chat-notification/issues"
+  },
+  "homepage": "https://github.com/VuCoKhoi/google-chat-notification#readme",
+  "dependencies": {
+    "google-chat-webhook": "^1.0.0"
+  }
+}

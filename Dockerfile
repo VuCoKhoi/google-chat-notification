@@ -10,10 +10,13 @@ RUN apk add --no-cache \
   jq
 
 # Copies your code file  repository to the filesystem
-COPY entrypoint.sh /entrypoint.sh
+COPY . .
+
+RUN npm i
 
 # change permission to execute the script and
-RUN chmod +x /entrypoint.sh
+# RUN chmod +x /entrypoint.sh
 
 # file to execute when the docker container starts up
-ENTRYPOINT ["/entrypoint.sh"]
+# ENTRYPOINT ["/entrypoint.sh"]
+CMD ["npm", "run", "start"]
