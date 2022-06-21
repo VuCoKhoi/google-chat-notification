@@ -1,10 +1,12 @@
 name: Test action
 on:
-  [push]
-  # pull_request:
-  #   types:
-  #     - opened
-  #     - reopened
+  pull_request:
+    branches:
+      - develop
+      - master
+    types:
+      - opened
+      - reopened
 jobs:
   my_job:
     runs-on: ubuntu-latest
