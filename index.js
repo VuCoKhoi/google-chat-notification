@@ -23,7 +23,7 @@ if (!url) {
 }
 const client = new GoogleChatWebhook({ url });
 const userSpecificMention = client.getMentionMarkup(
-  MentionType.USER_SPECIFIC,
+  MentionType.SPECIFIC_USER,
   `113263506233665221171`
 );
 const card = {
