@@ -8,7 +8,7 @@ const args = process.argv;
 //     };
 //   }, {});
 
-console.log("args", args);
+console.log("args", args, process.env);
 
 // import { GoogleChatWebhook } from "google-chat-webhook";
 // const url = process.env.WEBHOOK_URL;

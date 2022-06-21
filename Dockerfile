@@ -13,8 +13,6 @@ RUN apk add --no-cache \
 # Copies your code file  repository to the filesystem
 COPY . .
 
-RUN npm i
-RUN ls
 # change permission to execute the script and
 RUN chmod +x /entrypoint.sh
 
