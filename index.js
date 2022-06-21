@@ -70,4 +70,4 @@ const card = {
     },
   ],
 };
-await client.sendCard(card);
+client.sendCard(card).catch(console.log);
