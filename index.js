@@ -15,6 +15,7 @@ import {
   BuiltInIcon,
   CardImageStyle,
   GoogleChatWebhook,
+  MentionType,
 } from "google-chat-webhook";
 const url = process.env.INPUT_WEBHOOK;
 if (!url) {
