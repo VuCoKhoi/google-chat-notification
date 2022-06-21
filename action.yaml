@@ -1,0 +1,40 @@
+name: "Google Chat Notification"
+description: "Github actions for google chat Room Bot"
+inputs:
+  message:
+    description: "Commit Message"
+    required: true
+  project:
+    description: "Github Project Name"
+    required: true
+  commit:
+    description: "Github Commit ID"
+    required: true
+  branch:
+    description: "Github Branch"
+    required: true
+  status:
+    description: "Github Action Build Status"
+    required: true
+  actionid:
+    description: "Current Running Action ID"
+    required: true
+  eventnumber:
+    description: "Event Number"
+    required: true
+  webhook:
+    description: "Google Chat Webhook URL"
+    required: true
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.project }}
+    - ${{ inputs.commit }}
+    - ${{ inputs.branch }}
+    - ${{ inputs.status }}
+    - ${{ inputs.actionid }}
+    - ${{ inputs.webhook }}
+    - ${{ inputs.message }}
+    - ${{ inputs.eventnumber }}
